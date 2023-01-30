@@ -18,7 +18,7 @@ numDegreeArray.forEach((i) => {
 });
 
 //lesson03
-let lang = 'ru';
+let lang;
 let langArr = [];
 
 langArr['ru'] = 'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье';
