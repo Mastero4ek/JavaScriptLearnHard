@@ -5,42 +5,19 @@ const date1 = document.querySelector('.date1'),
 
 setInterval(function() {
 	const now = new Date();
+	const options = {
+		weekday: 'long',
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	};
 
-	let message = '',
-		year = now.getFullYear(),
-		month = now.getMonth(),
-		week = now.getDay(),
-		day = now.getDate(),
+	let message1 = '',
+		message2 = '',
+		messageEdit = '',
 		hour = now.getHours(),
 		minute = now.getMinutes(),
 		second = now.getSeconds();
-
-	const weeks = [
-		{day: 'Понедельник'},
-		{day: 'Вторник'},
-		{day: 'Среда'},
-		{day: 'Четверг'},
-		{day: 'Пятница'},
-		{day: 'Суббота'},
-		{day: 'Воскресенье'}
-		];
-
-	const months = [
-		{month: 'Января'},
-		{month: 'Февраля'},
-		{month: 'Марта'},
-		{month: 'Апреля'},
-		{month: 'Мая'},
-		{month: 'Июня'},
-		{month: 'Июля'},
-		{month: 'Августа'},
-		{month: 'Сентября'},
-		{month: 'Октября'},
-		{month: 'Ноября'},
-		{month: 'Декабря'},
-		];
-
-	const calculateDay = (6 + week) % 7;
 
 	const timeHours = function(num, txt) {
 		num = (num < 10) ? '0' + num : num;
@@ -74,8 +51,19 @@ setInterval(function() {
 		return num + ' ';
 	}
 
-	message += 'Сегодня ' + weeks[calculateDay].day.bold() + ', ' + day + ' ' + months[month].month.bold() + ' ' + year + ' года, ' + timeHours(hour, ' час').italics() + timeMinSec(minute, ' минут').italics() + timeMinSec(second, ' секунд').italics();
+	messageEdit = now.toLocaleString('ru', options)[0].toUpperCase() +
+				  now.toLocaleString('ru', options).slice(1);
 
-	date1.innerHTML = message;
-	date2.innerHTML = now.toLocaleString().replace(',', ' -');
+	message1 += 'Сегодня ' +
+				messageEdit.replace('.', 'ода, ') +
+				timeHours(hour, ' час').italics() +
+				timeMinSec(minute, ' минут').italics() +
+				timeMinSec(second, ' секунд').italics();
+
+	message2 += now.toLocaleString().replace(',', ' -');
+
+	date1.innerHTML = message1;
+	date2.innerHTML = message2;
+
 }, 1000);
+

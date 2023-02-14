@@ -10,22 +10,20 @@ body {
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
+	background-color: #000000;
 }
 
 .date {
 	width: 80%;
 	text-align: center;
 	padding: 10px 20px;
-	border: 2px solid #000000;
+	border: 5px solid #999999;
+	background-color: #FFFFFF;
 	font-size: 19px;
 }
 
 .date1 {
 	margin-bottom: 10px;
-}
-
-.date1 > b {
-	color: green;
 }
 
 .date1 > i {
