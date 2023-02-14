@@ -1,0 +1,33 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.date {
+	width: 80%;
+	text-align: center;
+	padding: 10px 20px;
+	border: 2px solid #000000;
+	font-size: 19px;
+}
+
+.date1 {
+	margin-bottom: 10px;
+}
+
+.date1 > b {
+	color: green;
+}
+
+.date1 > i {
+	color: red;
+}
